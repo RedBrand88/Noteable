@@ -25,7 +25,10 @@ extensions = {
 
 def create():
     parentdirectory = "~/Documents/Notes/"
-    extension = str(sys.argv[3])
+    try:
+        extension = str(sys.argv[3])
+    except IndexError:
+        print("This command requires 3 inputs: filename, foldername, file extension")
 
     try:
         extension = extensions[extension]
