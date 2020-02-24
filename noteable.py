@@ -34,6 +34,7 @@ def create():
         extension = ".txt"
 
     filename = str(sys.argv[1]) + extension
+
     foldername = str(sys.argv[2])
 
 
