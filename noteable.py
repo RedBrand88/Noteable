@@ -25,12 +25,14 @@ extensions = {
     "txt": text,
 }
 
+
 def listExisitngFiles():
     for root, dirs, files in os.walk(defaultRelativePath):
         dirString = root.split("/")[-1]
         print(f"{dirString}")
         for file in files:
             print(f"    |{file}")
+
 
 def openExistingFileinFolder(target):
     found = False
@@ -42,6 +44,7 @@ def openExistingFileinFolder(target):
 
     if not found:
         print(f"{target} does not exist in Notes")
+
 
 def createTextFileFolder():
     parentdirectory = defaultparentdirectory
@@ -77,7 +80,6 @@ def createNoteFolderExtension():
 
     foldername = str(sys.argv[3])
 
-
     with textfilecreator(filename, foldername, parentdirectory):
         pass
 
@@ -85,16 +87,34 @@ def createNoteFolderExtension():
 
     os.system("vim " + filepath)
 
+
+def noteableHelp():
+    help = True
+    print("Noteable Commands:\n")
+    print("-----------------\n")
+    print("Create note commands\n")
+    print("--------------------\n")
+    print("-- nfe - args: note name, folder name, extension\n")
+    print("-- ng - args: note name, folder name, extension will be .txt\n")
+    print("Open note command\n")
+    print("-----------------\n")
+    print("-- no - args: note name with extension\n")
+    print("note list command\n")
+    print("-----------------\n")
+    print("-- lf - args: none")
+
 def main():
     if sys.argv[1] == "nfe":
         createNoteFolderExtension()
     elif sys.argv[1] == "nf":
         createTextFileFolder()
     elif sys.argv[1] == "no":
-       openExistingFileinFolder(sys.argv[2])
+        openExistingFileinFolder(sys.argv[2])
     elif sys.argv[1] == "lf":
         listExisitngFiles()
+    elif sys.argv[1] == "noteable -h":
+        noteableHelp()
+
 
 if __name__ == "__main__":
     main()
-
