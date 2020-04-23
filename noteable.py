@@ -27,17 +27,21 @@ extensions = {
 
 def listExisitngFiles():
     for root, dirs, files in os.walk(defaultRelativePath):
-        print(f"{root}")
+        dirString = root.split("/")[-1]
+        print(f"{dirString}")
         for file in files:
             print(f"    |{file}")
 
 def openExistingFileinFolder(target):
+    found = False
     for root, dirs, files in os.walk(defaultRelativePath):
         if target in files:
+            found = True
             path = os.path.join(root, target)
             os.system("vim " + path)
-        else:
-            print(f"{target} does not exist in {root}")
+
+    if not found:
+        print(f"{target} does not exist in Notes")
 
 def createTextFileFolder():
     parentdirectory = defaultparentdirectory
