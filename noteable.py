@@ -89,19 +89,22 @@ def createNoteFolderExtension():
 
 
 def noteableHelp():
-    help = True
-    print("Noteable Commands:\n")
-    print("-----------------\n")
-    print("Create note commands\n")
-    print("--------------------\n")
-    print("-- nfe - args: note name, folder name, extension\n")
-    print("-- ng - args: note name, folder name, extension will be .txt\n")
-    print("Open note command\n")
-    print("-----------------\n")
-    print("-- no - args: note name with extension\n")
-    print("note list command\n")
-    print("-----------------\n")
-    print("-- lf - args: none")
+    print("|--------------------------------------------------------------------|\n")
+    print("|                         Noteable Commands                          |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|     Create note commands - commands that will create new notes     |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|  nfe - args: note name, folder name, extension                     |\n")
+    print("|  ng - args: note name, folder name, extension will be .txt         |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|        Open note command - command that opens existing note        |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|  no - args: note name with extension                               |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|note list command - lists current notes and folders to the terminal |\n")
+    print("|--------------------------------------------------------------------|\n")
+    print("|  lf - args: none                                                   |\n")
+    print("|--------------------------------------------------------------------|")
 
 def main():
     if sys.argv[1] == "nfe":
