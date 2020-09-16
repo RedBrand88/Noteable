@@ -1,6 +1,7 @@
 import sys
 import os
 from textfilecreator import textfilecreator
+import enum
 
 python = ".py"
 js = ".js"
@@ -25,6 +26,12 @@ extensions = {
     "txt": text,
 }
 
+class TextEditors(enum.Enum):
+    Vim = "vim "
+
+    def __str__(self):
+        return f"{self.value}"
+
 
 def findFile(target):
     for root, dirs, files in os.walk(os.path.expanduser(defaultparentdirectory)):
@@ -46,7 +53,7 @@ def listExisitngFiles():
 def openExistingFileinFolder(target):
     path = findFile(target)
     if path:
-        os.system("vim " + path)
+        os.system(str(TextEditors.Vim) + path)
     else:
         print(f"{target} does not exist in Notes")
 
@@ -61,7 +68,7 @@ def createTextFileFolder():
 
     filepath = os.path.join(parentdirectory, foldername, filename)
 
-    os.system("vim " + filepath)
+    os.system(str(TextEditors.Vim) + filepath)
 
 
 def createNoteFolderExtension():
@@ -90,7 +97,7 @@ def createNoteFolderExtension():
 
     filepath = os.path.join(parentdirectory, foldername, filename)
 
-    os.system("vim " + filepath)
+    os.system(str(TextEditors.Vim) + filepath)
 
 
 def deleteNote(target):
