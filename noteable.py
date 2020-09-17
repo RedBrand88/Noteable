@@ -45,9 +45,12 @@ def findFile(target):
 def listExisitngFiles():
     for root, dirs, files in os.walk(os.path.expanduser(defaultparentdirectory)):
         dirString = root.split("/")[-1]
-        print(f"{dirString}")
-        for file in files:
-            print(f"    |{file}")
+        if dirString == "Noteable" or dirString == "__pycache__":
+            continue
+        else:
+            print(f"{dirString}")
+            for file in files:
+                print(f"    |{file}")
 
 
 def openExistingFileinFolder(target):
